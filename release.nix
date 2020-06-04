@@ -15,9 +15,13 @@ let nativePkgs = import ./. args;
         # arm builds for good measure.
         rpi32-gnu = armv7l-hf-multiplatform;
         # sadly this one is missing from the nixpkgs system examples
-        rpi32-musl = import nixpkgsSrc (nativePkgs.lib.recursiveUpdate nixpkgsArgs
-            { crossSystem = nativePkgs.lib.systems.examples.armv7l-hf-multiplatform
-                        // { config = "armv7l-unknown-linux-musleabihf"; }; });
+        # This is a mess, we have no way to access nixpkgsFun or the
+        # original arguments nixpkgs was called with.
+        rpi32-musl = import nativePkgs.path {
+            inherit (nativePkgs) overlays config;
+            crossSystem = nativePkgs.lib.systems.examples.armv7l-hf-multiplatform
+              // { config = "armv7l-unknown-linux-musleabihf"; };
+            };
         rpi64-gnu = aarch64-multiplatform;
         rpi64-musl = aarch64-multiplatform-musl;
     };
