@@ -1,7 +1,7 @@
 final: prev:
 let
   sources = import ./nix/sources.nix { pkgs = final; };
-  naersk  = final.callPackage (import sources.naersk) {};
+  naersk  = final.callPackage (import sources."rust.nix") {};
   # Inject `files` into `src`. E.g. Cargo.lock files into src repositories that
   # do not have any.  Without them reproducable builds are impossible.  However
   # rust's documentation suggests only to add them to executables and does not
