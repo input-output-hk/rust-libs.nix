@@ -1,7 +1,6 @@
 final: prev:
 let
   sources = import ./nix/sources.nix { pkgs = final; };
-  naersk  = final.callPackage (import sources."rust.nix") {};
   # Inject `files` into `src`. E.g. Cargo.lock files into src repositories that
   # do not have any.  Without them reproducable builds are impossible.  However
   # rust's documentation suggests only to add them to executables and does not
@@ -36,6 +35,8 @@ let
     files = { "Cargo.lock" = ./locks + "/${name}.lock"; };
   };
 in {
+    # this way we can override it in a different overlay if we need to.
+    naersk  = final.callPackage (import sources."rust.nix") {};
     # the KES rust library
     kes_mmm_sumed25519_c = rustPkg {
         # "CC_${final.rust.toRustTarget final.targetPlatform}" = "${final.pkgsBuildTarget.targetPackages.stdenv.cc}/bin/${final.pkgsBuildTarget.targetPackages.stdenv.cc.targetPrefix}cc";
