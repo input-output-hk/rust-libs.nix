@@ -6,7 +6,7 @@
 # somehow out of the overlay.nix). And the targets we want, and then just
 # produce the products (rustPkgs x targets) we want hydra to build.
 let nativePkgs = import ./. args;
-    rustPkgs = [ "kes_mmm_sumed25519_c" ];
+    rustPkgs = [ "kes_mmm_sumed25519_c" "rust-test" ];
     targets = with nativePkgs.pkgsCross; {
         "${builtins.currentSystem}" = nativePkgs;
         x86-musl64 = musl64;
