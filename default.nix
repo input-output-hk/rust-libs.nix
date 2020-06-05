@@ -34,13 +34,14 @@ import nixpkgs { overlays = [
     #    cannot find -lpthread
     #
     # We need to inject the -L flags into NIX_LDFLAGS while building rustc.
+    # Notably rust will try to statically link it and nixpkgs by default
+    # disables static products m(.
     (final: prev: prev.lib.optionalAttrs prev.targetPlatform.isWindows {
         rustc = final.rustPackages.rustc.overrideDerivation (drv: {
-            NIX_LDFLAGS = toString (
-                [ drv.NIX_LDFLAGS ]
-                ++ [ "-L${final.targetPackages.windows.mingw_w64_pthreads}/bin" ]
-                ++ [ "-L${final.targetPackages.windows.mingw_w64_pthreads}/lib" ]
-            );
+            NIX_DEBUG = 3;
+            NIX_x86_64_w64_mingw32_LDFLAGS = [
+                "-L${final.targetPackages.windows.mingw_w64_pthreads.overrideDerivation (_ : { dontDisableStatic = true; })}/lib"
+            ];
         });
     })
     (import ./overlay.nix)
