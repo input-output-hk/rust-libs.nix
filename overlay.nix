@@ -27,7 +27,18 @@ let
   # rust packages we built by default contain all binaries and lirbaries
   # to be consumed downstream.
   rustPkg = { src, ... }@args:
-    let defaultArgs = { copyBins = true; copyTarget = false; copyLibs = true; };
+    let defaultArgs = {
+      copyBins = true; copyTarget = false; copyLibs = true;
+      # So for windows we'll need to do some threading hand stands.
+      # We need mingw_w64_pthreads, as rust will forcably link -lpthread
+      # but we'll also need to always link mcfgthread, as that's baked into
+      # gcc.
+      NIX_x86_64_w64_mingw32_LDFLAGS = [
+          "-L${final.pkgsBuildTarget.targetPackages.windows.mingw_w64_pthreads.overrideDerivation (_ : { dontDisableStatic = true; })}/lib"
+          "-L${final.pkgsBuildTarget.targetPackages.windows.mcfgthreads}/lib"
+          "-lmcfgthread"
+      ];
+    };
     in final.naersk.buildPackage (defaultArgs // args);
   # a helper for injecting lock files based on names.
   namedSrc = name: augmentSrc {
@@ -39,18 +50,11 @@ in {
     naersk  = final.callPackage (import sources."rust.nix") {};
     # the KES rust library
     kes_mmm_sumed25519_c = rustPkg {
-        # "CC_${final.rust.toRustTarget final.targetPlatform}" = "${final.pkgsBuildTarget.targetPackages.stdenv.cc}/bin/${final.pkgsBuildTarget.targetPackages.stdenv.cc.targetPrefix}cc";
-        # CARGO_BUILD_TARGET = final.rust.toRustTarget final.targetPlatform;
-        # CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
-        # CARGO_TARGET_X86_64_UNKNOWN_LINUX_MUSL_LINKER = "${final.llvmPackages_9.lld}/bin/lld";
-        # CC_x86_64_unknown_linux_musl = "${final.pkgsBuildTarget.targetPackages.stdenv.cc}/bin/${final.pkgsBuildTarget.targetPackages.stdenv.cc.targetPrefix}cc";
-        cargoOptions = (opts: opts ++ [ "--verbose" ]);
-        # RUSTFLAGS = "--verbose";
-        # CARGO_BUILD_RUSTFLAGS = "--verbose";
+        # cargoOptions = (opts: opts ++ [ "--verbose" ]);
         src = namedSrc "kes-mmm-sumed25519";
     };
     rust-test = rustPkg {
-        cargoOptions = (opts: opts ++ [ "--verbose" ]);
+        # cargoOptions = (opts: opts ++ [ "--verbose" ]);
         src = ./rust-test;
     };
 }
