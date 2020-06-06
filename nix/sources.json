@@ -36,15 +36,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "rust.nix": {
-        "branch": "more-fixes",
+        "branch": "master",
         "description": "Build rust crates in Nix. No configuration, no code generation, no IFD. Sandbox friendly.",
         "homepage": "",
         "owner": "input-output-hk",
         "repo": "rust.nix",
-        "rev": "8336f4472d19bf8ca05d1f8c95417e7220acde1e",
-        "sha256": "1rc5mpiaj5k8gax7028ad7vdcrnvk6ni54spzvy75znpbs83y890",
+        "rev": "fe71b831ee7a29851920072f5432eae0fd1ee2c2",
+        "sha256": "0kwdnd9nrd716l2k3i5x6xwbs6naij445ihayg1gqq0fga0w8ns6",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/rust.nix/archive/8336f4472d19bf8ca05d1f8c95417e7220acde1e.tar.gz",
+        "url": "https://github.com/input-output-hk/rust.nix/archive/fe71b831ee7a29851920072f5432eae0fd1ee2c2.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
