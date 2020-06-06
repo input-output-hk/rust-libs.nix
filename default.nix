@@ -19,7 +19,6 @@ import nixpkgs { overlays = [
     (final: prev: prev.lib.optionalAttrs prev.targetPlatform.isMusl {
         rustc = final.rustPackages.rustc.overrideDerivation  (drv: {
             configureFlags =
-                __trace ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
                 # We need to pull musl from the targetPackages set. We want musl
                 # *for* the target platform. rustc is being pulled from the
                 # buildPackages (build -> target compiler), but we link against
