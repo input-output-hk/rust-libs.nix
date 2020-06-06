@@ -1,5 +1,5 @@
 { sources ? import ./nix/sources.nix { }
-, nixpkgs ? ../nixpkgs #sources.nixpkgs
+, nixpkgs ? sources.nixpkgs
 }:
 # Add rust packages to nixpkgs via the overlay in overlay.nix
 import nixpkgs { overlays = [
@@ -48,7 +48,7 @@ import nixpkgs { overlays = [
     })
     (import ./overlay.nix)
     # For debugging with a local rust.nix checkout.
-    (final: prev: {
-        naersk = final.callPackage (import ../rust.nix) {};
-    })
+    # (final: prev: {
+    #     naersk = final.callPackage (import ../rust.nix) {};
+    # })
 ]; }
