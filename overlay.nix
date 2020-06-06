@@ -40,6 +40,7 @@ let
       ];
     };
     in final.naersk.buildPackage (defaultArgs // args);
+
   # a helper for injecting lock files based on names.
   namedSrc = name: augmentSrc {
     inherit name; src = sources.${name};
@@ -51,7 +52,7 @@ in {
     # the KES rust library
     kes_mmm_sumed25519_c = rustPkg {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);
-        src = namedSrc "kes-mmm-sumed25519";
+        src = sources.kes-mmm-sumed25519;
     };
     rust-test = rustPkg {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);

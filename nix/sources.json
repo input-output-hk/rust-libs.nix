@@ -5,10 +5,10 @@
         "homepage": null,
         "owner": "input-output-hk",
         "repo": "kes-mmm-sumed25519",
-        "rev": "03e08900f1efd408b27c096011f5b4b6799e57aa",
-        "sha256": "1zmb0vcmpr18dbw30gwpmywb5arx6q4h09bfr5g9gfd7545bvsnw",
+        "rev": "d69e2628751db5b53bdb046e0731ef4722264fde",
+        "sha256": "066iqmljzdlkzn3hvrl5r5av7crd19y56f8jlcp0chp7w11zvwa6",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/kes-mmm-sumed25519/archive/03e08900f1efd408b27c096011f5b4b6799e57aa.tar.gz",
+        "url": "https://github.com/input-output-hk/kes-mmm-sumed25519/archive/d69e2628751db5b53bdb046e0731ef4722264fde.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
