@@ -41,6 +41,8 @@ import nixpkgs { overlays = [
             NIX_DEBUG = 3;
             NIX_x86_64_w64_mingw32_LDFLAGS = [
                 "-L${final.targetPackages.windows.mingw_w64_pthreads.overrideDerivation (_ : { dontDisableStatic = true; })}/lib"
+                "-L${final.targetPackages.windows.mcfgthreads}/lib"
+                "-lmcfgthread"
             ];
         });
     })
