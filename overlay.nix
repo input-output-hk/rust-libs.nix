@@ -33,7 +33,7 @@ let
       # We need mingw_w64_pthreads, as rust will forcably link -lpthread
       # but we'll also need to always link mcfgthread, as that's baked into
       # gcc.
-      NIX_x86_64_w64_mingw32_LDFLAGS = [
+      NIX_x86_64_w64_mingw32_LDFLAGS = final.lib.optionals final.stdenv.targetPlatform.isWindows [
           "-L${final.pkgsBuildTarget.targetPackages.windows.mingw_w64_pthreads.overrideDerivation (_ : { dontDisableStatic = true; })}/lib"
           "-L${final.pkgsBuildTarget.targetPackages.windows.mcfgthreads}/lib"
           "-lmcfgthread"

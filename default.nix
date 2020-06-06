@@ -38,7 +38,7 @@ import nixpkgs { overlays = [
     (final: prev: prev.lib.optionalAttrs prev.targetPlatform.isWindows {
         rustc = final.rustPackages.rustc.overrideDerivation (drv: {
             NIX_DEBUG = 3;
-            NIX_x86_64_w64_mingw32_LDFLAGS = [
+            NIX_x86_64_w64_mingw32_LDFLAGS = final.lib.optionals final.stdenv.targetPlatform.isWindows [
                 "-L${final.targetPackages.windows.mingw_w64_pthreads.overrideDerivation (_ : { dontDisableStatic = true; })}/lib"
                 "-L${final.targetPackages.windows.mcfgthreads}/lib"
                 "-lmcfgthread"
