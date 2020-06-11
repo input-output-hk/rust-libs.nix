@@ -1,14 +1,14 @@
 {
     "kes-mmm-sumed25519": {
-        "branch": "master",
+        "branch": "patch-1",
         "description": "key evolving signature",
         "homepage": null,
-        "owner": "input-output-hk",
+        "owner": "angerman",
         "repo": "kes-mmm-sumed25519",
-        "rev": "dfb52b6e63990e3dfc1b87e818c882e1d83861d1",
-        "sha256": "1vq65ix26g2lyv3iqbjik2biqz4whmidfjsn0a8rb1447dvz1hzm",
+        "rev": "fc14c8a88666a527724f6b826608a0a5f2cd5fbf",
+        "sha256": "1q6mhsk8kqjsfpf5l8xxipkmdy2chj2cl8s4avv3qwqnvnljhfds",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/kes-mmm-sumed25519/archive/dfb52b6e63990e3dfc1b87e818c882e1d83861d1.tar.gz",
+        "url": "https://github.com/angerman/kes-mmm-sumed25519/archive/fc14c8a88666a527724f6b826608a0a5f2cd5fbf.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "input-output-hk",
         "repo": "rust.nix",
-        "rev": "fe71b831ee7a29851920072f5432eae0fd1ee2c2",
-        "sha256": "0kwdnd9nrd716l2k3i5x6xwbs6naij445ihayg1gqq0fga0w8ns6",
+        "rev": "8e61af56693d5afaa3648437fd32706d53a3cf6b",
+        "sha256": "05hb0sp8kq0s2n43m7fhvl70q874yxq5q0sm3c1g4lhbk8iz1lgz",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/rust.nix/archive/fe71b831ee7a29851920072f5432eae0fd1ee2c2.tar.gz",
+        "url": "https://github.com/input-output-hk/rust.nix/archive/8e61af56693d5afaa3648437fd32706d53a3cf6b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

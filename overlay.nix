@@ -9,7 +9,9 @@ let
   # rust packages we built by default contain all binaries and lirbaries
   # to be consumed downstream.
   rustPkg = { src, ... }@args:
-    let defaultArgs = { copyBins = true; copyTarget = false; copyLibs = true; };
+    let defaultArgs = { copyBins = true; copyTarget = false; copyLibs = true;
+                        # windows needs shared, everyone else stand back.
+                        enableShared = final.targetPlatform.isWindows; };
     in final.rust-nix.buildPackage (defaultArgs // args);
 
   # a helper for injecting lock files based on names.

@@ -1,5 +1,6 @@
 { sources ? import ./nix/sources.nix { }
 , nixpkgs ? sources.nixpkgs
+, sourcesOverride ? {}
 , ...
 }@args:
 # The idea is to have rustPkgs listed (or we'd somehow have to extract the names
