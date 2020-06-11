@@ -1,14 +1,14 @@
 {
     "kes-mmm-sumed25519": {
-        "branch": "patch-1",
+        "branch": "master",
         "description": "key evolving signature",
         "homepage": null,
-        "owner": "angerman",
+        "owner": "input-output-hk",
         "repo": "kes-mmm-sumed25519",
-        "rev": "fc14c8a88666a527724f6b826608a0a5f2cd5fbf",
-        "sha256": "1q6mhsk8kqjsfpf5l8xxipkmdy2chj2cl8s4avv3qwqnvnljhfds",
+        "rev": "dfb52b6e63990e3dfc1b87e818c882e1d83861d1",
+        "sha256": "1vq65ix26g2lyv3iqbjik2biqz4whmidfjsn0a8rb1447dvz1hzm",
         "type": "tarball",
-        "url": "https://github.com/angerman/kes-mmm-sumed25519/archive/fc14c8a88666a527724f6b826608a0a5f2cd5fbf.tar.gz",
+        "url": "https://github.com/input-output-hk/kes-mmm-sumed25519/archive/dfb52b6e63990e3dfc1b87e818c882e1d83861d1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
