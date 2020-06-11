@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "input-output-hk",
         "repo": "rust.nix",
-        "rev": "8e61af56693d5afaa3648437fd32706d53a3cf6b",
-        "sha256": "05hb0sp8kq0s2n43m7fhvl70q874yxq5q0sm3c1g4lhbk8iz1lgz",
+        "rev": "0ca07648a994182e5ba4f811254991caaac39d76",
+        "sha256": "1ni96sf1n7iwx9al03divqwabdjxn8s39qpg4d3xl5mgiiwvxdlc",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/rust.nix/archive/8e61af56693d5afaa3648437fd32706d53a3cf6b.tar.gz",
+        "url": "https://github.com/input-output-hk/rust.nix/archive/0ca07648a994182e5ba4f811254991caaac39d76.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

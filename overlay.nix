@@ -10,8 +10,8 @@ let
   # to be consumed downstream.
   rustPkg = { src, ... }@args:
     let defaultArgs = { copyBins = true; copyTarget = false; copyLibs = true;
-                        # windows needs shared, everyone else stand back.
-                        enableShared = final.targetPlatform.isWindows; };
+                        enableShared = false;
+                      };
     in final.rust-nix.buildPackage (defaultArgs // args);
 
   # a helper for injecting lock files based on names.
