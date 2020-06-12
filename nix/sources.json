@@ -46,5 +46,17 @@
         "type": "tarball",
         "url": "https://github.com/input-output-hk/rust.nix/archive/6959812b844b1cb98dc61fe1cbc8a83fd761cc8c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "vit-servicing-station": {
+        "branch": "master",
+        "description": "End points to bootstrap VIT as a service: VaaS",
+        "homepage": "https://input-output-hk.github.io/vit-servicing-station/",
+        "owner": "input-output-hk",
+        "repo": "vit-servicing-station",
+        "rev": "cbae457dfe9d0873f11c2a986f186fd794f0bc59",
+        "sha256": "1n6spsyzm5rnlylvjxfcdkkafzz0pli26ycg53w6mqaw87qrxg7i",
+        "type": "tarball",
+        "url": "https://github.com/input-output-hk/vit-servicing-station/archive/cbae457dfe9d0873f11c2a986f186fd794f0bc59.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

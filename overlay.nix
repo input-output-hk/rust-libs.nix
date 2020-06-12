@@ -32,8 +32,13 @@ in {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);
         src = sources.kes-mmm-sumed25519;
     };
+
     rust-test = rustPkg {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);
         src = ./rust-test;
+    };
+
+    vit-servicing-station = rustPkg {
+      src = sources.vit-servicing-station;
     };
 }

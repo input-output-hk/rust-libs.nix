@@ -2,7 +2,9 @@
 , nixpkgs ? sources.nixpkgs
 , sourcesOverride ? {}
 }:
-let sources' = sources // sourcesOverride; in
+let
+  sources' = sources // sourcesOverride;
+in
 # Add rust packages to nixpkgs via the overlay in overlay.nix
 import nixpkgs { overlays = [
     (import sources'."rust.nix")
