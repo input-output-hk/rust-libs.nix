@@ -20,6 +20,13 @@ let
     files = { "Cargo.lock" = ./locks + "/${name}.lock"; };
   };
 in {
+
+    rust_1_43 = final.callPackage ./rust-versions/1_43.nix {
+      inherit (final.darwin.apple_sdk.frameworks) CoreFoundation Security;
+    };
+
+    rust = final.rust_1_43;
+
     # the KES rust library
     kes_mmm_sumed25519_c = rustPkg {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);
