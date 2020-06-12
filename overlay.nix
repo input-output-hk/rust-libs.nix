@@ -36,4 +36,9 @@ in {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);
         src = ./rust-test;
     };
+    vit-servicing-station = rustPkg {
+      src = sources.vit-servicing-station;
+      cargoOptions = (_: []);
+      cargoBuildOptions = (_: [ "$cargo_release" ''-j "$NIX_BUILD_CORES"'' "--message-format=$cargo_message_format" ]);
+    };
 }
