@@ -13,9 +13,10 @@
 , CoreFoundation, Security
 , llvmPackages_5
 , pkgsBuildTarget, pkgsBuildBuild
+, pkgs
 } @ args:
 
-import <nixpkgs/pkgs/development/compilers/rust/default.nix> {
+import "${pkgs.path}/pkgs/development/compilers/rust/default.nix" {
   rustcVersion = "1.43.0";
   rustcSha256 = "18akhk0wz1my6y9vhardriy2ysc482z0fnjdcgs9gy59kmnarxkm";
 
@@ -36,4 +37,4 @@ import <nixpkgs/pkgs/development/compilers/rust/default.nix> {
   selectRustPackage = pkgs: pkgs.rust_1_43;
 }
 
-(builtins.removeAttrs args [ "fetchpatch" ])
+(builtins.removeAttrs args [ "fetchpatch" "pkgs" ])
