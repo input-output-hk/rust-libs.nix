@@ -27,11 +27,11 @@
       inherit rustc cargo;
     };
 
-    fetchCargoTarball = buildPackages.callPackage ../../../build-support/rust/fetchCargoTarball.nix {
+    fetchCargoTarball = buildPackages.callPackage ./build-support/fetchCargoTarball.nix {
       inherit cargo;
     };
 
-    buildRustPackage = callPackage ../../../build-support/rust {
+    buildRustPackage = callPackage ./build-support {
       inherit rustc cargo fetchCargoTarball;
     };
 
