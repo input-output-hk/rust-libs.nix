@@ -21,7 +21,7 @@ let
   };
 in {
 
-    rust_1_43 = final.callPackage ./rust-versions/1_43.nix {
+    rust_1_43 = final.callPackage ./rust/1_43.nix {
       inherit (final.darwin.apple_sdk.frameworks) CoreFoundation Security;
     };
 
