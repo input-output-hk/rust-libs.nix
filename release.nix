@@ -18,17 +18,17 @@ let linuxPkgs = import ./. (args  // { system = "x86_64-linux"; });
         x86-win64 = mingwW64;
 
         # arm builds for good measure.
-        rpi32-gnu = armv7l-hf-multiplatform;
+        armv7l-gnu = armv7l-hf-multiplatform;
         # sadly this one is missing from the nixpkgs system examples
         # This is a mess, we have no way to access nixpkgsFun or the
         # original arguments nixpkgs was called with.
-        rpi32-musl = import linuxPkgs.path {
+        armv7l-musl = import linuxPkgs.path {
             inherit (linuxPkgs) overlays config;
             crossSystem = linuxPkgs.lib.systems.examples.armv7l-hf-multiplatform
               // { config = "armv7l-unknown-linux-musleabihf"; };
             };
-        rpi64-gnu = aarch64-multiplatform;
-        rpi64-musl = aarch64-multiplatform-musl;
+        aarch64-gnu = aarch64-multiplatform;
+        aarch64-musl = aarch64-multiplatform-musl;
     };
 in with nativePkgs.lib;
 flip mapAttrs targets (_: pkgs:
