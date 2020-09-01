@@ -1,0 +1,76 @@
+{
+  "nodes": {
+    "kes-mmm-sumed25519": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1595080682,
+        "narHash": "sha256-ujkoqd0Wczz2VkQjyoSETPhW5429I1rcdVriiaaG1eA=",
+        "owner": "input-output-hk",
+        "repo": "kes-mmm-sumed25519",
+        "rev": "25ed986ed8da23c62e20a65bc370089596f6e540",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "repo": "kes-mmm-sumed25519",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1598493267,
+        "narHash": "sha256-xqeR+aB+9AXorw1fPvqmG+8k85GdATfOs4WF8U1sIm8=",
+        "path": "/nix/store/q1ndc620r8s4qfjcv0vnphdq4xpm16nv-source",
+        "rev": "f9567594d5af2926a9d5b96ae3bada707280bec6",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "kes-mmm-sumed25519": "kes-mmm-sumed25519",
+        "nixpkgs": "nixpkgs",
+        "rust-nix": "rust-nix",
+        "vit-servicing-station": "vit-servicing-station"
+      }
+    },
+    "rust-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1591866496,
+        "narHash": "sha256-pExZdSxhPwev3r8LkPC0BEL/K2NMr7mTE/qDFi7+FuI=",
+        "owner": "input-output-hk",
+        "repo": "rust.nix",
+        "rev": "6959812b844b1cb98dc61fe1cbc8a83fd761cc8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "repo": "rust.nix",
+        "type": "github"
+      }
+    },
+    "vit-servicing-station": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1598860782,
+        "narHash": "sha256-ehBxODoWwEF6jKOKl8mF891j/MRZQYGeRIt8GMgqoaA=",
+        "ref": "master",
+        "rev": "5e77728fa7d6f4d3e89608a2ecdab9f14e9ece7c",
+        "revCount": 316,
+        "type": "git",
+        "url": "git://github.com/input-output-hk/vit-servicing-station?submodules=true"
+      },
+      "original": {
+        "ref": "master",
+        "type": "git",
+        "url": "git://github.com/input-output-hk/vit-servicing-station?submodules=true"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
