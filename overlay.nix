@@ -39,6 +39,20 @@ in {
     };
 
     vit-servicing-station = rustPkg {
-      src = sources.vit-servicing-station;
+      src = final.runCommand "patched-source" {
+        src = final.fetchFromGitHub {
+          owner = "input-output-hk";
+          repo = "vit-servicing-station";
+          sha256 = "sha256-VFZ42TOQdNO9Ab7Y2eC+3fvzKFbtR7jSaBWnLYkO/Xo=";
+          fetchSubmodules = true;
+          rev = "5e77728fa7d6f4d3e89608a2ecdab9f14e9ece7c";
+        };
+        patches = [ ./vit-servicing-station.patch ];
+      } ''
+        unpackPhase
+        mv $sourceRoot $out
+        cd $out
+        patchPhase
+      '';
     };
 }
