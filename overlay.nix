@@ -1,6 +1,6 @@
+inputs:
 final: prev:
 let
-  sources = import ./nix/sources.nix { pkgs = final; };
   # Inject `files` into `src`. E.g. Cargo.lock files into src repositories that
   # do not have any.  Without them reproducable builds are impossible.  However
   # rust's documentation suggests only to add them to executables and does not
@@ -13,12 +13,6 @@ let
                         enableShared = false;
                       };
     in final.rust-nix.buildPackage (defaultArgs // args);
-
-  # a helper for injecting lock files based on names.
-  namedSrc = name: augmentSrc {
-    inherit name; src = sources.${name};
-    files = { "Cargo.lock" = ./locks + "/${name}.lock"; };
-  };
 in {
 
     rust_1_43 = final.callPackage ./rust/1_43.nix {
@@ -30,7 +24,7 @@ in {
     # the KES rust library
     kes_mmm_sumed25519_c = rustPkg {
         # cargoOptions = (opts: opts ++ [ "--verbose" ]);
-        src = sources.kes-mmm-sumed25519;
+        src = inputs.kes-mmm-sumed25519;
     };
 
     rust-test = rustPkg {
@@ -40,13 +34,13 @@ in {
 
     vit-servicing-station = rustPkg {
       src = final.runCommand "patched-source" {
-        src = final.fetchFromGitHub {
-          owner = "input-output-hk";
-          repo = "vit-servicing-station";
-          sha256 = "sha256-VFZ42TOQdNO9Ab7Y2eC+3fvzKFbtR7jSaBWnLYkO/Xo=";
-          fetchSubmodules = true;
-          rev = "5e77728fa7d6f4d3e89608a2ecdab9f14e9ece7c";
-        };
+         src = final.fetchFromGitHub {
+           owner = "input-output-hk";
+           repo = "vit-servicing-station";
+           sha256 = "sha256-VFZ42TOQdNO9Ab7Y2eC+3fvzKFbtR7jSaBWnLYkO/Xo=";
+           fetchSubmodules = true;
+           rev = "5e77728fa7d6f4d3e89608a2ecdab9f14e9ece7c";
+         };
         patches = [ ./vit-servicing-station.patch ];
       } ''
         unpackPhase
