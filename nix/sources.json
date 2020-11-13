@@ -53,10 +53,10 @@
         "homepage": "https://input-output-hk.github.io/vit-servicing-station/",
         "owner": "input-output-hk",
         "repo": "vit-servicing-station",
-        "rev": "cbae457dfe9d0873f11c2a986f186fd794f0bc59",
-        "sha256": "1n6spsyzm5rnlylvjxfcdkkafzz0pli26ycg53w6mqaw87qrxg7i",
+        "rev": "9865e49172d8366bbfd1650dd03052965d483ed7",
+        "sha256": "15lrzjnszmgqnbgbx78wfjjwq7ix3k707fkx2aikdnmfp873pdfv",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/vit-servicing-station/archive/cbae457dfe9d0873f11c2a986f186fd794f0bc59.tar.gz",
+        "url": "https://github.com/input-output-hk/vit-servicing-station/archive/9865e49172d8366bbfd1650dd03052965d483ed7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
